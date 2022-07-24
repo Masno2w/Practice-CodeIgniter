@@ -37,6 +37,14 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->get('word', 'Word::index');
+//$routes->match(['get','post'],'(:alphanum)','Word::word/$1');
+$routes->match(['get','post'],'searchKeyword/(:any)','searchKeywordController::searchKeyword/$1');
+
+$routes->match(['get','post'],'test/(:any)','MysqlController::mysqlUseModel/$1');
+$routes->match(['get','post'],'db/test','DbConnectTest::index');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
